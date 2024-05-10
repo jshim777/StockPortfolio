@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Confirmation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .confirmation-details {
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .confirmation-details p {
+      margin: 10px 0;
+    }
+    
+    strong {
+      font-weight: bold;
+    }
+    
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 20px 0;
+    }
+    
+    a {
+      color: #007bff;
+      text-decoration: underline;
+    }
+    
+    a:hover {
+      color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Stock Data Confirmation</h1>
+    
+    <div class="confirmation-details">
+      <p><strong>User Name:</strong> <%= data.userName %></p>
+      <p><strong>Stock:</strong> <%= data.stock %></p>
+      <p><strong>Stock Price:</strong> <%= data.stockPrice %></p>
+      <p><strong>Shares:</strong> <%= data.share %></p>
+      <p><strong>Total Value:</strong> <%= (data.totalValue).toFixed(2) %></p>
+      <p><strong>Regular Market Time (raw):</strong> <%= data.rawTime %></p>
+      <p><strong>Regular Market Date:</strong> <%= data.date %></p>
+      <p><strong>Regular Market Time (formatted):</strong> <%= data.fmtTime %></p>
+      <p><strong>Notes:</strong></p>
+      <p><%= data.note %></p>
+    </div>
+    
+    <div class="confirmation-details">
+      <p><strong>Task completed at:</strong> <strong><%= new Date() %></strong></p>
+    </div>
+    
+    <a href="/">HOME</a>
+  </div>
+</body>
+</html>

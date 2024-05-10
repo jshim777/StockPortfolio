@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display Stocks</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid #f1f1f128;
+    }
+    
+    th {
+      background-color: #f5f5f5;
+      font-weight: bold;
+    }
+    
+    tr:last-child td {
+      border-bottom: none;
+    }
+    
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Display Stocks</h1>
+  <table style="border: 1px solid black;">
+    <tr>
+      <th>Stocks</th>
+      <th>Shares</th>
+      <th>Buy Price</th>
+      <th>Total Value</th>
+      <th>Sell Price</th>
+      <th>Profit/Loss</th>
+      <th>Trade Date</th>
+      <th>Trade Time</th>
+      <th>Current Date (Raw)</th>
+      <th>Current Time (Formatted)</th>
+    </tr>
+    <% stockData.forEach(function(stock) { %>
+      <tr>
+        <td><%= stock.stock %></td>
+        <td><%= stock.totalShares %></td>
+        <td><%= stock.buyPrice %></td>
+        <td><%= stock.totalValue.toFixed(2) %></td>
+        <td><%= stock.sellPrice %></td>
+        <td><%= stock.profitLoss.toFixed(2) %></td>
+        <td><%= stock.timeBought.date %></td>
+        <td><%= stock.timeBought.fmt %></td>
+        <td><%= stock.regularMarketTime.date %></td>
+        <td><%= stock.regularMarketTime.fmt %></td>
+      </tr>
+    <% }) %>
+  </table>
+  <br>
+  <a href="/">HOME</a>
+</body>
+</html>
