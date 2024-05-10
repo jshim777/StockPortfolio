@@ -1,7 +1,3 @@
-// npm init
-// npm i
-// npm install dotenv mongodb express body-parser ejs axios
-
 const express = require('express');
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const path = require('path');
@@ -26,19 +22,7 @@ const client = new MongoClient(process.env.MONGO_CONNECTION_STRING, {
 
 const database = { db: process.env.MONGO_DB_NAME, collection: process.env.MONGO_COLLECTION };
 
-//const args = process.argv.slice(2);
-//const PORT = args.length === 1 ? parseInt(args[0], 10) : process.env.PORT;
-const port = process.env.PORT || 7000
-
-/* if (args.length !== 1) {
-    console.log('Usage summerCampServer.js Port_Number');
-    process.exit(1);
-} */
-
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+const PORT = process.env.PORT || 3000;
 
 
 // Main page route
@@ -251,23 +235,6 @@ app.post('/RemoveStock', async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Web Server started and running at http://localhost:${port}`);
-    rl.setPrompt('Stop to shutdown the server: ');
-    rl.prompt();
-
-    rl.on('line', (line) => {
-        switch (line.trim()) {
-            case 'stop':
-                console.log('Shutting down the server');
-                process.exit(0);
-                break;
-            default:
-                console.log(`Invalid command: ${line.trim()}`);
-        }
-        rl.prompt();
-    }).on('close', () => {
-        console.log('Shutting down the server');
-        process.exit(0);
-    });
+app.listen(PORT, () => {
+    console.log(`Web Server started and running at http://localhost:${PORT}`);
 });
