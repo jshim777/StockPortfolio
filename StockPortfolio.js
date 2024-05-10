@@ -1,7 +1,6 @@
 const express = require('express');
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const path = require('path');
-const readline = require('readline');
 const axios = require('axios');
 const { INSPECT_MAX_BYTES } = require('buffer');
 require('dotenv').config();
@@ -14,6 +13,8 @@ app.use(express.static('public'));
 app.set('views', path.join(__dirname, 'templates'));
 app.set('view engine', 'ejs');
 
+const PORT = process.env.PORT_NUMBER || 7000;
+
 const client = new MongoClient(process.env.MONGO_CONNECTION_STRING, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -21,9 +22,6 @@ const client = new MongoClient(process.env.MONGO_CONNECTION_STRING, {
 });
 
 const database = { db: process.env.MONGO_DB_NAME, collection: process.env.MONGO_COLLECTION };
-
-const PORT = process.env.PORT || 3000;
-
 
 // Main page route
 app.get('/', (req, res) => {
