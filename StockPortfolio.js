@@ -40,7 +40,7 @@ app.post('/OptionsDisplay', async (req, res) => {
             method: 'GET',
             url: `https://yahoo-finance127.p.rapidapi.com/search/${stockExchange}`,
             headers: {
-                'X-RapidAPI-Key': '843902855dmsh2fe2b3db7250bb8p1ced77jsn6e80e5a8a39c',
+                'X-RapidAPI-Key': 'a740d4b8c1msh39c50768065ac50p1a1f8fjsn5d6e63f06ecf',
                 'X-RapidAPI-Host': 'yahoo-finance127.p.rapidapi.com'
             }
         };
@@ -79,7 +79,7 @@ app.post('/DisplayYourStocks', async (req, res) => {
                     method: 'GET',
                     url: `https://yahoo-finance127.p.rapidapi.com/price/${item.stock}`,
                     headers: {
-                        'X-RapidAPI-Key': '843902855dmsh2fe2b3db7250bb8p1ced77jsn6e80e5a8a39c',
+                        'X-RapidAPI-Key': 'a740d4b8c1msh39c50768065ac50p1a1f8fjsn5d6e63f06ecf',
                         'X-RapidAPI-Host': 'yahoo-finance127.p.rapidapi.com'
                     }
                 };
@@ -156,7 +156,7 @@ app.post('/submitData', async (req, res) => {
             method: 'GET',
             url: `https://yahoo-finance127.p.rapidapi.com/price/${applicationData.stock}`,
             headers: {
-                'X-RapidAPI-Key': '843902855dmsh2fe2b3db7250bb8p1ced77jsn6e80e5a8a39c',
+                'X-RapidAPI-Key': 'a740d4b8c1msh39c50768065ac50p1a1f8fjsn5d6e63f06ecf',
                 'X-RapidAPI-Host': 'yahoo-finance127.p.rapidapi.com'
             }
         };
