@@ -48,8 +48,6 @@ app.post('/OptionsDisplay', async (req, res) => {
         const response = await axios.request(options);
         const stockData = response.data;
 
-        console.log('API Response:', stockData);
-
         res.render('OptionsDisplay', { stockData });
     } catch (error) {
         console.error('Error:', error);
